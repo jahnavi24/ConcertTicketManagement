@@ -1,0 +1,181 @@
+{
+  "info": {
+    "name": "EventManagementService API",
+    "_postman_id": "f7b3e5f2-1234-5678-9101-abcdef123456",
+    "description": "Collection for Event and Ticket Management APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Events",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7170/api/events",
+          "protocol": "https",
+          "host": [ "localhost" ],
+          "port": "7170",
+          "path": [ "api", "events" ]
+        }
+      }
+    },
+    {
+      "name": "Get Event By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7170/api/events/{{eventId}}",
+          "protocol": "https",
+          "host": [ "localhost" ],
+          "port": "7170",
+          "path": [ "api", "events", "{{eventId}}" ]
+        }
+      }
+    },
+    {
+      "name": "Create Event",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Name\": \"Rock Concert\",\n  \"Description\": \"Live rock concert\",\n  \"Venue\": \"Madison Square Garden\",\n  \"EventDate\": \"2025-10-15T19:00:00Z\",\n  \"TotalCapacity\": 100,\n  \"TicketTypes\": [\n    {\"Name\":\"VIP\",\"Price\":200,\"Capacity\":10},\n    {\"Name\":\"Regular\",\"Price\":100,\"Capacity\":90}\n  ]\n}"
+        },
+        "url": {
+          "raw": "https://localhost:7170/api/events",
+          "protocol": "https",
+          "host": [ "localhost" ],
+          "port": "7170",
+          "path": [ "api", "events" ]
+        }
+      }
+    },
+    {
+      "name": "Update Event",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Name\": \"Rock Concert Updated\",\n  \"Description\": \"Updated description\",\n  \"Venue\": \"Madison Square Garden\",\n  \"EventDate\": \"2025-10-15T19:00:00Z\",\n  \"TotalCapacity\": 120\n}"
+        },
+        "url": {
+          "raw": "https://localhost:7170/api/events/{{eventId}}",
+          "protocol": "https",
+          "host": [ "localhost" ],
+          "port": "7170",
+          "path": [ "api", "events", "{{eventId}}" ]
+        }
+      }
+    },
+    {
+      "name": "Delete Event",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7170/api/events/{{eventId}}",
+          "protocol": "https",
+          "host": [ "localhost" ],
+          "port": "7170",
+          "path": [ "api", "events", "{{eventId}}" ]
+        }
+      }
+    },
+    {
+      "name": "Reserve Ticket",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"TicketTypeId\": \"{{ticketTypeId}}\",\n  \"CustomerEmail\": \"customer@example.com\"\n}"
+        },
+        "url": {
+          "raw": "https://localhost:7170/api/tickets/reserve",
+          "protocol": "https",
+          "host": [ "localhost" ],
+          "port": "7170",
+          "path": [ "api", "tickets", "reserve" ]
+        }
+      }
+    },
+    {
+      "name": "Purchase Ticket",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"TicketId\": \"{{ticketId}}\",\n  \"CustomerEmail\": \"customer@example.com\",\n  \"PaymentTransactionId\": \"txn_123456\"\n}"
+        },
+        "url": {
+          "raw": "https://localhost:7170/api/tickets/purchase",
+          "protocol": "https",
+          "host": [ "localhost" ],
+          "port": "7170",
+          "path": [ "api", "tickets", "purchase" ]
+        }
+      }
+    },
+    {
+      "name": "Cancel Ticket",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"TicketId\": \"{{ticketId}}\",\n  \"CustomerEmail\": \"customer@example.com\"\n}"
+        },
+        "url": {
+          "raw": "https://localhost:7170/api/tickets/cancel",
+          "protocol": "https",
+          "host": [ "localhost" ],
+          "port": "7170",
+          "path": [ "api", "tickets", "cancel" ]
+        }
+      }
+    },
+    {
+      "name": "Check Ticket Availability",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7170/api/tickets/availability/{{eventId}}",
+          "protocol": "https",
+          "host": [ "localhost" ],
+          "port": "7170",
+          "path": [ "api", "tickets", "availability", "{{eventId}}" ]
+        }
+      }
+    }
+  ]
+}

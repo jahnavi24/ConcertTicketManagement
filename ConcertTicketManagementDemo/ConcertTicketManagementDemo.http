@@ -1,0 +1,6 @@
+@BackendServiceDemo_HostAddress = http://localhost:5159
+
+GET {{BackendServiceDemo_HostAddress}}/events/
+Accept: application/json
+
+###
