@@ -105,6 +105,8 @@ namespace BackendServiceDemo.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
+            // This controller is incomplete. Ideally when event is deleted their corresponding tickets should be cleanup.
+            // There should be a backend job to cleanup old events and tickets as well.
             var existing = await _context.Events.FindAsync(id);
             if (existing == null) return NotFound();
 

@@ -1,0 +1,21 @@
+# Visual Studio temporary files, build results, and user-specific files
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+
+# Rider/JetBrains
+.idea/
+
+# ASP.NET Core
+appsettings.*.json
+*.db
+
+# Visual Studio Code
+.vscode/
+
+# npm / Node.js (if any)
+node_modules/
